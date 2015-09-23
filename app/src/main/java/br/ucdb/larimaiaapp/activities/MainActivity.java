@@ -1,9 +1,11 @@
-package br.ucdb.larimaiaapp;
+package br.ucdb.larimaiaapp.activities;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import br.ucdb.larimaiaapp.R;
 
 
 public class MainActivity extends ActionBarActivity {
