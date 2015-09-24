@@ -3,6 +3,7 @@ package br.ucdb.larimaiaapp.api;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import br.ucdb.larimaiaapp.models.Cliente;
 import br.ucdb.larimaiaapp.models.Produto;
 import retrofit.Callback;
 import retrofit.RestAdapter;
@@ -64,7 +65,7 @@ public class ApiWeb {
         @DELETE("/cliente/excluir/{id}")
         public void excluirCliente(@Path("id") long id, Callback<Response> callback);
 
-        //TipoEvento
+        /**TipoEvento
         @POST("/tipoevento/salvar")
         public void salvarTipoEvento(@Body TipoEvento tipoevento, Callback<Response> callback);
         @GET("/tipoevento/editar/{id}")
@@ -79,6 +80,6 @@ public class ApiWeb {
         public void editarPedido(@Path("id") long id, Callback<Pedido> callback);
         @DELETE("/pedido/excluir/{id}")
         public void excluirPedido(@Path("id") long id, Callback<Response> callback);
-
+         **/
     }
 }
