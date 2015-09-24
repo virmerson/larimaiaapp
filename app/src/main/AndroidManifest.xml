@@ -16,6 +16,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".activities.CadastroCliente"
+            android:label="@string/title_activity_cadastro_cliente" >
+        </activity>
+        <activity
+            android:name=".ConsultaCliente"
+            android:label="@string/title_activity_consulta_cliente" >
+        </activity>
     </application>
 
 </manifest>
