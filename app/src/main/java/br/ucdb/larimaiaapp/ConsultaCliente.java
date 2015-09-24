@@ -22,7 +22,7 @@ public class ConsultaCliente extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consulta_cliente);
 
-
+        //teste
     }
 
     @Override
