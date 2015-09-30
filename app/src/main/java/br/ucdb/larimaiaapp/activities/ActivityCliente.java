@@ -36,14 +36,14 @@ public class ActivityCliente extends AppCompatActivity {
 
     @OnClick(R.id.btn_salvar_cliente)
     public void salvar(){
-        Produto.Cliente c = new Produto.Cliente();
+       /*  Produto.Cliente c = new Produto.Cliente();
         c.setNome(txtNome.getText().toString());
         c.setEmail(txtEmail.getText().toString());
         c.setTelefone(txtTelefone.getText().toString());
 
 
         Toast.makeText(this, c.toString(), Toast.LENGTH_SHORT).show();
-
+*/
 
     }
 

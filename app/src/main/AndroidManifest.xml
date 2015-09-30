@@ -16,14 +16,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<<<<<<< HEAD
+
 
         <activity
             android:name=".activities.ActivityProduto"
             android:label="@string/app_name" >
         </activity>
 
-=======
         <activity
             android:name=".activities.ActivityCliente"
             android:label="@string/title_activity_cadastro_cliente" >
@@ -32,7 +31,7 @@
             android:name=".ConsultaCliente"
             android:label="@string/title_activity_consulta_cliente" >
         </activity>
->>>>>>> ken-eva
+
     </application>
 
 </manifest>
