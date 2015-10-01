@@ -23,6 +23,9 @@
             android:name=".activities.ActivityConsultaCliente"
             android:label="@string/title_activity_consulta_cliente" >
         </activity>
+        <activity android:name=".activities.ActivityTipoEvento">
+
+        </activity>
 
     </application>
 

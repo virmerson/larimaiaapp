@@ -5,6 +5,7 @@ import com.google.gson.GsonBuilder;
 
 import br.ucdb.larimaiaapp.model.Cliente;
 import br.ucdb.larimaiaapp.model.Produto;
+import br.ucdb.larimaiaapp.model.TipoEvento;
 import retrofit.Callback;
 import retrofit.RestAdapter;
 import retrofit.client.Response;
@@ -65,7 +66,7 @@ public class ApiWeb {
         @DELETE("/cliente/excluir/{id}")
         public void excluirCliente(@Path("id") long id, Callback<Response> callback);
 
-        /**TipoEvento
+//       TipoEvento
         @POST("/tipoevento/salvar")
         public void salvarTipoEvento(@Body TipoEvento tipoevento, Callback<Response> callback);
         @GET("/tipoevento/editar/{id}")
@@ -73,13 +74,13 @@ public class ApiWeb {
         @DELETE("/tipoevento/excluir/{id}")
         public void excluirTipoEvento(@Path("id") long id, Callback<Response> callback);
 
-        //Pedido
-        @POST("/pedido/salvar")
-        public void salvarPedido(@Body Pedido pedido, Callback<Response> callback);
-        @GET("/pedido/editar/{id}")
-        public void editarPedido(@Path("id") long id, Callback<Pedido> callback);
-        @DELETE("/pedido/excluir/{id}")
-        public void excluirPedido(@Path("id") long id, Callback<Response> callback);
-         **/
+//        Pedido
+//        @POST("/pedido/salvar")
+//        public void salvarPedido(@Body Pedido pedido, Callback<Response> callback);
+//        @GET("/pedido/editar/{id}")
+//        public void editarPedido(@Path("id") long id, Callback<Pedido> callback);
+//        @DELETE("/pedido/excluir/{id}")
+//        public void excluirPedido(@Path("id") long id, Callback<Response> callback);
+
     }
 }

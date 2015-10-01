@@ -4,6 +4,9 @@ android {
     compileSdkVersion 22
     buildToolsVersion "23.0.1"
 
+
+
+
     defaultConfig {
         applicationId "br.ucdb.larimaiaapp"
         minSdkVersion 17
@@ -16,6 +19,12 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+}
+//faz a contrução sem apresentar erros
+android {
+    lintOptions {
+        abortOnError false
     }
 }
 
