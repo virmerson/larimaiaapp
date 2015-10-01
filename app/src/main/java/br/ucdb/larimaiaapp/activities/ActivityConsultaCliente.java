@@ -1,33 +1,35 @@
 package br.ucdb.larimaiaapp.activities;
 
-import android.support.v7.app.ActionBarActivity;
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.content.Intent;
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
+import android.widget.ListView;
+
 import br.ucdb.larimaiaapp.R;
+import butterknife.Bind;
 
+public class ActivityConsultaCliente extends AppCompatActivity {
 
-public class MainActivity extends AppCompatActivity {
+    @Bind(R.id.lista_cliente)
+    ListView listaCliente;
+
+    @Bind(R.id.btn_lista_voltar)
+    Button voltar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-    }
+        setContentView(R.layout.activity_consulta_lista);
 
+        //teste
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_consulta_cliente, menu);
         return true;
     }
 

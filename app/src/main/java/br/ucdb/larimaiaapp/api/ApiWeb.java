@@ -3,8 +3,8 @@ package br.ucdb.larimaiaapp.api;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import br.ucdb.larimaiaapp.models.Cliente;
-import br.ucdb.larimaiaapp.models.Produto;
+import br.ucdb.larimaiaapp.model.Cliente;
+import br.ucdb.larimaiaapp.model.Produto;
 import retrofit.Callback;
 import retrofit.RestAdapter;
 import retrofit.client.Response;

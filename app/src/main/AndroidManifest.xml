@@ -8,15 +8,6 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-        <activity
-            android:name=".activities.MainActivity"
-            android:label="@string/app_name" >
-            <intent-filter>
-                //Declarando que essa activity é a main
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
 
 
         <activity
@@ -29,7 +20,7 @@
             android:label="@string/title_activity_cadastro_cliente" >
         </activity>
         <activity
-            android:name=".ConsultaCliente"
+            android:name=".activities.ActivityConsultaCliente"
             android:label="@string/title_activity_consulta_cliente" >
         </activity>
 

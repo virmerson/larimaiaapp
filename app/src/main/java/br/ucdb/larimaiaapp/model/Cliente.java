@@ -1,4 +1,4 @@
-package br.ucdb.larimaiaapp.models;
+package br.ucdb.larimaiaapp.model;
 
 /**
  * Created by Mar_Ju on 23/09/2015.
