@@ -4,15 +4,24 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
+import java.util.List;
+
 import br.ucdb.larimaiaapp.R;
+import br.ucdb.larimaiaapp.api.ApiWeb;
+import br.ucdb.larimaiaapp.model.Cliente;
 import butterknife.Bind;
+import butterknife.ButterKnife;
+import retrofit.Callback;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
 
 public class ActivityConsultaCliente extends AppCompatActivity {
 
-    @Bind(R.id.lista_cliente)
+    @Bind(R.id.lista)
     ListView listaCliente;
 
     @Bind(R.id.btn_lista_voltar)
@@ -22,6 +31,22 @@ public class ActivityConsultaCliente extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consulta_lista);
+
+        ButterKnife.bind(this);
+
+        ApiWeb.getRotas().listaClientes(new Callback<List<Cliente>>() {
+            @Override
+            public void success(List<Cliente> clientes, Response response) {
+                //Carrengando no ListView
+                ArrayAdapter<Cliente> adapter = new ArrayAdapter<Cliente>(ActivityConsultaCliente.this, android.R.layout.simple_list_item_1, clientes);
+                listaCliente.setAdapter(adapter);
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+
+            }
+        });
 
         //teste
     }
