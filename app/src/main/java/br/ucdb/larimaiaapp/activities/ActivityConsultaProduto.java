@@ -1,29 +1,33 @@
 package br.ucdb.larimaiaapp.activities;
 
+
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.List;
 
 import br.ucdb.larimaiaapp.R;
 import br.ucdb.larimaiaapp.api.ApiWeb;
-import br.ucdb.larimaiaapp.model.Cliente;
 import br.ucdb.larimaiaapp.model.Produto;
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
 
 public class ActivityConsultaProduto extends AppCompatActivity {
-
     @Bind(R.id.lista)
     ListView listaProduto;
 

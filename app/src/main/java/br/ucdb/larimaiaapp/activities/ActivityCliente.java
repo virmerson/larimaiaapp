@@ -20,7 +20,8 @@ import retrofit.client.Response;
 
 public class ActivityCliente extends AppCompatActivity {
 
-
+    static boolean valida = false;
+    static Cliente cli ;
     @Bind(R.id.txt_nome)
     EditText txtNome;
 
@@ -37,11 +38,44 @@ public class ActivityCliente extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cliente);
         ButterKnife.bind(this);
+
+        Intent intent = getIntent();
+        Cliente cli = (Cliente) intent.getSerializableExtra("Cliente");
     }
 
     @OnClick(R.id.btn_salvar_cliente)
     public void salvar() {
-        Cliente c = new Cliente();
+        if(valida==false) {
+            Cliente c = new Cliente();
+            c.setNome(txtNome.getText().toString());
+            c.setEmail(txtEmail.getText().toString());
+            c.setTelefone(txtTelefone.getText().toString());
+
+            ApiWeb.getRotas().salvarCliente(c, new Callback<Response>() {
+                @Override
+                public void success(Response response, Response response2) {
+                    Toast.makeText(ActivityCliente.this, "Salvo com sucesso", Toast.LENGTH_SHORT).show();
+                }
+
+                @Override
+                public void failure(RetrofitError error) {
+                    Toast.makeText(ActivityCliente.this, "Falha ao salvar", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }else{
+            editar();
+        }
+
+    }
+
+    @OnClick(R.id.btn_Listar_cliente)
+    public void listar() {
+        Intent irParaTelaListar = new Intent(ActivityCliente.this, ActivityConsultaCliente.class);
+        startActivityForResult(irParaTelaListar, 1);
+    }
+
+    public void editar(){
+        Cliente c = cli;
         c.setNome(txtNome.getText().toString());
         c.setEmail(txtEmail.getText().toString());
         c.setTelefone(txtTelefone.getText().toString());
@@ -57,13 +91,15 @@ public class ActivityCliente extends AppCompatActivity {
                 Toast.makeText(ActivityCliente.this, "Falha ao salvar", Toast.LENGTH_SHORT).show();
             }
         });
-
+        valida=false;
     }
 
-    @OnClick(R.id.btn_Listar_cliente)
-    public void listar() {
-        Intent irParaTelaListar = new Intent(ActivityCliente.this, ActivityConsultaCliente.class);
-        startActivityForResult(irParaTelaListar, 1);
+    public void TelaEditar(Cliente c){
+        cli = c;
+        valida = true;
+        txtNome.setText(c.getNome());
+        txtEmail.setText(c.getEmail());
+        txtTelefone.setText(c.getTelefone());
     }
 }
 //    @Override
