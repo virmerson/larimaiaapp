@@ -41,6 +41,9 @@ public class ActivityCliente extends AppCompatActivity {
 
         Intent intent = getIntent();
         Cliente cli = (Cliente) intent.getSerializableExtra("Cliente");
+        if(cli!=null){
+            TelaEditar(cli);
+        }
     }
 
     @OnClick(R.id.btn_salvar_cliente)

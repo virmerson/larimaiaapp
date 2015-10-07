@@ -38,7 +38,7 @@ public class ActivityConsultaCliente extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_consulta_lista);
+        setContentView(R.layout.activity_consulta_cliente);
 
         ButterKnife.bind(this);
 
@@ -82,11 +82,9 @@ public class ActivityConsultaCliente extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 final Cliente cli = (Cliente) adapterView.getItemAtPosition(position);
-                ActivityCliente a = new ActivityCliente() ;
-                a.TelaEditar(cli);
-                //Intent intent = new Intent(ActivityConsultaCliente.this, ActivityCliente.class);
-                //intent.putExtra("Cliente",cli);
-                //startActivity(intent);
+                Intent intent = new Intent(ActivityConsultaCliente.this, ActivityCliente.class);
+                intent.putExtra("Cliente",cli);
+                startActivity(intent);
 
                 //Chamando nova activity passando um Objeto no Bundle para ser editado no form
                 //startActivity(new Intent(ActivityConsultaCliente.this, ActivityCliente.class).putExtra(ActivityCliente.EDIT_KEY_COURSE, adapterView.getItem(position)));
