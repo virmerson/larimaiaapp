@@ -15,9 +15,7 @@ import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
 
-/**
- * Created by Mar_Ju on 23/09/2015.
- */
+
 public class ActivityProduto extends AppCompatActivity {
 
     @Bind(R.id.et_id)
@@ -91,7 +89,7 @@ public class ActivityProduto extends AppCompatActivity {
         ApiWeb.getRotas().excluirProduto(id, new Callback<Response>() {
             @Override
             public void success(Response response, Response response2) {
-                Toast.makeText(ActivityProduto.this, "Ecluido com sucesso", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ActivityProduto.this, "Excluido com sucesso", Toast.LENGTH_SHORT).show();
             }
 
             @Override
