@@ -1,7 +1,7 @@
 package br.ucdb.larimaiaapp.activities;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
@@ -10,10 +10,12 @@ import android.widget.ListView;
 import br.ucdb.larimaiaapp.R;
 import butterknife.Bind;
 
-public class ActivityConsultaCliente extends AppCompatActivity {
-
+/**
+ * Created by MarceloPC on 30/09/2015.
+ */
+public class ActivityConsultaProduto extends AppCompatActivity {
     @Bind(R.id.lista_consulta)
-    ListView listaCliente;
+    ListView listaProduto;
 
     @Bind(R.id.btn_lista_voltar)
     Button voltar;

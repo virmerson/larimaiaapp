@@ -3,6 +3,8 @@ package br.ucdb.larimaiaapp.api;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import java.util.List;
+
 import br.ucdb.larimaiaapp.model.Cliente;
 import br.ucdb.larimaiaapp.model.Produto;
 import retrofit.Callback;
@@ -56,6 +58,8 @@ public class ApiWeb {
         public void editarProduto(@Path("id") long id, Callback<Produto> callback);
         @DELETE("/produto/excluir/{id}")
         public void excluirProduto(@Path("id") long id, Callback<Response> callback);
+        @GET("/produto/listar")
+        public void listarProduto(@Body Produto produto, Callback<List<Produto>> callback);
 
         //Cliente
         @POST("/cliente/salvar")
@@ -64,6 +68,8 @@ public class ApiWeb {
         public void editarCliente(@Path("id") long id, Callback<Cliente> callback);
         @DELETE("/cliente/excluir/{id}")
         public void excluirCliente(@Path("id") long id, Callback<Response> callback);
+        @GET("/cliente/listar")
+        public void listarProduto(@Body Cliente cliente, Callback<List<Cliente>> callback);
 
         /**TipoEvento
         @POST("/tipoevento/salvar")
@@ -72,6 +78,8 @@ public class ApiWeb {
         public void editarTipoEvento(@Path("id") long id, Callback<TipoEvento> callback);
         @DELETE("/tipoevento/excluir/{id}")
         public void excluirTipoEvento(@Path("id") long id, Callback<Response> callback);
+         @GET("/tipoevento/listar")
+         public void listarProduto(@Body TipoEvento tipoevento, Callback<List<TipoEvento>> callback);
 
         //Pedido
         @POST("/pedido/salvar")
@@ -80,6 +88,8 @@ public class ApiWeb {
         public void editarPedido(@Path("id") long id, Callback<Pedido> callback);
         @DELETE("/pedido/excluir/{id}")
         public void excluirPedido(@Path("id") long id, Callback<Response> callback);
+         @GET("/pedido/listar")
+         public void listarProduto(@Body Pedido pedido, Callback<List<Pedido>> callback);
          **/
     }
 }
