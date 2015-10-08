@@ -6,6 +6,7 @@ import com.google.gson.GsonBuilder;
 import java.util.List;
 
 import br.ucdb.larimaiaapp.model.Cliente;
+import br.ucdb.larimaiaapp.model.Pedido;
 import br.ucdb.larimaiaapp.model.Produto;
 import br.ucdb.larimaiaapp.model.TipoEvento;
 import retrofit.Callback;
@@ -84,16 +85,13 @@ public class ApiWeb {
          public void listaTipoEventos(Callback<List<TipoEvento>> callback);
 
 
-        /**Pedido
+        //Pedido
         @POST("/pedido/salvar")
         public void salvarPedido(@Body Pedido pedido, Callback<Response> callback);
         @GET("/pedido/editar/{id}")
         public void editarPedido(@Path("id") long id, Callback<Pedido> callback);
         @DELETE("/pedido/excluir/{id}")
         public void excluirPedido(@Path("id") long id, Callback<Response> callback);
-         @GET("/pedido/lista")
-         public void listaPedidos(Callback<List<Pedido>> callback);
-         **/
 
     }
 }
