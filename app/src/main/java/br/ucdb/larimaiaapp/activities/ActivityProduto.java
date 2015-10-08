@@ -15,9 +15,7 @@ import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
 
-/**
- * Created by Mar_Ju on 23/09/2015.
- */
+
 public class ActivityProduto extends AppCompatActivity {
 
     @Bind(R.id.et_id)
@@ -101,5 +99,8 @@ public class ActivityProduto extends AppCompatActivity {
         });
 
     }
+
+
+
 
 }

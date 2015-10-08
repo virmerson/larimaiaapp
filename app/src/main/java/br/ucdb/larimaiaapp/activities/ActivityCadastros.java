@@ -1,12 +1,12 @@
-package ucdb.larimaia.activities;
+package br.ucdb.larimaiaapp.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import br.ucdb.larimaiaapp.R;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import ucdb.larimaia.R;
 
 /**
  * Created by Junio on 20/09/2015.
@@ -20,11 +20,6 @@ public class ActivityCadastros extends AppCompatActivity{
         ButterKnife.bind(this);
     }
 
-    @OnClick(R.id.btn_logon)
-    public void logon(){
-        Intent irParaOpcao =  new Intent(this, ActivityLogon.class);
-        startActivity(irParaOpcao);
-    }
     @OnClick(R.id.btn_cliente)
     public void cliente(){
         Intent irParaOpcao =  new Intent(this, ActivityCliente.class);

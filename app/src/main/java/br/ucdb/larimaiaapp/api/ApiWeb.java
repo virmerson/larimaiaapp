@@ -23,7 +23,7 @@ import retrofit.http.Path;
  */
 
 public class ApiWeb {
-    public static final String BASE_URL = "http://192.168.25.3:8080/";
+    public static final String BASE_URL = "http://192.168.43.184:8080/ws/";
 
 
     public static Rotas rotasApi;
@@ -60,7 +60,7 @@ public class ApiWeb {
         @DELETE("/produto/excluir/{id}")
         public void excluirProduto(@Path("id") long id, Callback<Response> callback);
         @GET("/produto/listar")
-        public void listarProduto(@Body Produto produto, Callback<List<Produto>> callback);
+        public void listarProduto(Callback<List<Produto>> callback);
 
         //Cliente
         @POST("/cliente/salvar")
@@ -69,8 +69,9 @@ public class ApiWeb {
         public void editarCliente(@Path("id") long id, Callback<Cliente> callback);
         @DELETE("/cliente/excluir/{id}")
         public void excluirCliente(@Path("id") long id, Callback<Response> callback);
-        @GET("/cliente/listar")
-        public void listarProduto(@Body Cliente cliente, Callback<List<Cliente>> callback);
+        @GET("/cliente/lista")
+        public void listaClientes(Callback<List<Cliente>> callback);
+
 
         //TipoEvento
         @POST("/tipoevento/salvar")
@@ -79,8 +80,9 @@ public class ApiWeb {
         public void editarTipoEvento(@Path("id") long id, Callback<TipoEvento> callback);
         @DELETE("/tipoevento/excluir/{id}")
         public void excluirTipoEvento(@Path("id") long id, Callback<Response> callback);
-         @GET("/tipoevento/listar")
-         public void listarProduto(@Body TipoEvento tipoevento, Callback<List<TipoEvento>> callback);
+         @GET("/tipoevento/lista")
+         public void listaTipoEventos(Callback<List<TipoEvento>> callback);
+
 
         /**Pedido
         @POST("/pedido/salvar")
@@ -89,8 +91,9 @@ public class ApiWeb {
         public void editarPedido(@Path("id") long id, Callback<Pedido> callback);
         @DELETE("/pedido/excluir/{id}")
         public void excluirPedido(@Path("id") long id, Callback<Response> callback);
-         @GET("/pedido/listar")
-         public void listarProduto(@Body Pedido pedido, Callback<List<Pedido>> callback);
-        **/
+         @GET("/pedido/lista")
+         public void listaPedidos(Callback<List<Pedido>> callback);
+         **/
+
     }
 }
