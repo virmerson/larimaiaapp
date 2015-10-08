@@ -19,11 +19,11 @@ import retrofit.http.POST;
 import retrofit.http.Path;
 
 /**
- * Created by Mar_Ju on 23/09/2015.
+ * Created by Junio on 23/09/2015.
  */
 
 public class ApiWeb {
-    public static final String BASE_URL = "http://192.168.43.184:8080/ws/";
+    public static final String BASE_URL = "http://192.168.43.184:8080/larimaiawebapi/ws";
 
 
     public static Rotas rotasApi;
@@ -69,7 +69,7 @@ public class ApiWeb {
         public void editarCliente(@Path("id") long id, Callback<Cliente> callback);
         @DELETE("/cliente/excluir/{id}")
         public void excluirCliente(@Path("id") long id, Callback<Response> callback);
-        @GET("/cliente/lista")
+        @GET("/cliente/listar")
         public void listaClientes(Callback<List<Cliente>> callback);
 
 

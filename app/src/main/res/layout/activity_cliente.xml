@@ -43,6 +43,7 @@
         android:text="Listar"
         android:id="@+id/btn_Listar_cliente"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:onClick="listar"/>
 
 </LinearLayout>

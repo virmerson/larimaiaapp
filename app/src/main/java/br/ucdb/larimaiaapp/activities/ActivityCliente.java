@@ -3,6 +3,7 @@ package br.ucdb.larimaiaapp.activities;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -71,10 +72,10 @@ public class ActivityCliente extends AppCompatActivity {
 
     }
 
-    @OnClick(R.id.btn_Listar_cliente)
-    public void listar() {
-        Intent irParaTelaListar = new Intent(ActivityCliente.this, ActivityConsultaCliente.class);
-        startActivityForResult(irParaTelaListar, 1);
+
+    public void listar(View view) {
+        Intent irParaTelaListar = new Intent(this, ActivityConsultaCliente.class);
+        startActivityForResult(irParaTelaListar,1 );
     }
 
     public void editar(){

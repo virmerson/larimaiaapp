@@ -5,17 +5,17 @@ package br.ucdb.larimaiaapp.model;
  */
 public class Produto {
 
-    private Long id;
+    private Long idProduto;
     private String descricao;
     private Double valor;
 
 
     public Long getId() {
-        return id;
+        return idProduto;
     }
 
     public void setId(Long id) {
-        this.id = id;
+        this.idProduto = idProduto;
     }
 
     public String getDescricao() {

@@ -5,6 +5,7 @@ package br.ucdb.larimaiaapp.model;
  */
 public class TipoEvento {
 
+    private Long idTipoEvento;
     private String descricao;
 
     public String getDescricao() {
@@ -15,5 +16,11 @@ public class TipoEvento {
         this.descricao = descricao;
     }
 
+    public Long getIdTipoEvento() {
+        return idTipoEvento;
+    }
 
+    public void setIdTipoEvento(Long idTipoEvento) {
+        this.idTipoEvento = idTipoEvento;
+    }
 }

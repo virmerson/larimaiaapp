@@ -40,9 +40,6 @@ public class ActivityProduto extends AppCompatActivity {
 
         Produto produto = new Produto();
 
-        if(etId.getText() != null) {
-            produto.setId(Long.parseLong(etId.getText().toString()));
-        }
 
         produto.setDescricao(etDescricao.getText().toString());
         produto.setValor(Double.parseDouble(etValor.getText().toString()));

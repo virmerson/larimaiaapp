@@ -6,14 +6,14 @@ import java.io.Serializable;
  * Created by Mar_Ju on 23/09/2015.
  */
 public class Cliente implements Serializable {
-        private int id;
+        private int idCliente;
         private String nome;
         private String email;
         private String telefone;
 
-        public int getId() { return id; }
+        public int getId() { return idCliente; }
 
-        public void setId(int id) {this.id = id; }
+        public void setId(int idCliente) {this.idCliente = idCliente; }
 
         public String getEmail() {  return email; }
         public void setEmail(String email) {this.email = email; }
@@ -23,4 +23,9 @@ public class Cliente implements Serializable {
 
         public String getNome() {return nome; }
         public void setNome(String nome) {this.nome = nome; }
-    }
+
+        @Override
+        public String toString() {
+                return  nome ;
+        }
+}
