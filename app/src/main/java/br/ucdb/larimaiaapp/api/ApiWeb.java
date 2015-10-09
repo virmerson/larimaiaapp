@@ -24,7 +24,7 @@ import retrofit.http.Path;
  */
 
 public class ApiWeb {
-    public static final String BASE_URL = "http://192.168.43.184:8080/larimaiawebapi/ws";
+    public static final String BASE_URL = "http://192.168.25.3:8080/larimaiawebapi/ws";
 
 
     public static Rotas rotasApi;
@@ -70,7 +70,7 @@ public class ApiWeb {
         public void editarCliente(@Path("id") long id, Callback<Cliente> callback);
         @DELETE("/cliente/excluir/{id}")
         public void excluirCliente(@Path("id") long id, Callback<Response> callback);
-        @GET("/cliente/listar")
+        @GET("/cliente/lista")
         public void listaClientes(Callback<List<Cliente>> callback);
 
 
@@ -81,7 +81,7 @@ public class ApiWeb {
         public void editarTipoEvento(@Path("id") long id, Callback<TipoEvento> callback);
         @DELETE("/tipoevento/excluir/{id}")
         public void excluirTipoEvento(@Path("id") long id, Callback<Response> callback);
-         @GET("/tipoevento/lista")
+         @GET("/tipoevento/listar")
          public void listaTipoEventos(Callback<List<TipoEvento>> callback);
 
 
