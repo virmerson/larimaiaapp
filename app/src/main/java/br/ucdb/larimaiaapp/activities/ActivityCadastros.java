@@ -35,4 +35,9 @@ public class ActivityCadastros extends AppCompatActivity{
         Intent irParaOpcao =  new Intent(this, ActivityTipoEvento.class);
         startActivity(irParaOpcao);
     }
+    @OnClick(R.id.btn_pedido)
+    public void pedido(){
+        Intent irParaOpcao =  new Intent(this, ActivityCadPedido.class);
+        startActivity(irParaOpcao);
+    }
 }
