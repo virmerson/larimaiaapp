@@ -20,10 +20,12 @@ import retrofit.http.POST;
 import retrofit.http.Path;
 
 /**
- * Created by MrceloPC on 23/09/2015.
+ * Created by Junio on 23/09/2015.
  */
 
 public class ApiWeb {
+
+    //SEMPRE ALTERAR NO CAMINHO O IP, COLOCAR O DA MÁQUINA AONDE ESTÁ O SERVIDOR WEB
     public static final String BASE_URL = "http://192.168.25.3:8080/larimaiawebapi/ws";
 
 

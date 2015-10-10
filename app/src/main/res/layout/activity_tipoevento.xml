@@ -5,66 +5,64 @@
     android:weightSum="1"
     android:background="#fff3ff92">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Tipo Evento"
-        android:id="@+id/textView"
-        android:layout_gravity="center_horizontal"
-        android:layout_weight="0.13" />
-
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.02">
-
-
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="76dp"
+        android:layout_gravity="center_horizontal"
+        android:weightSum="1">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Descrição:"
-            android:id="@+id/tvDescricao"
-            android:layout_weight="0.13" />
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Cadastro Tipo Evento"
+            android:id="@+id/tv_titulo"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="0.22"
+            android:paddingTop="@dimen/abc_action_bar_content_inset_material" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Descrição"
+            android:id="@+id/tv_descricao"
+            android:layout_gravity="left|center_horizontal" />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/etDescricao" />
+            android:id="@+id/et_descricao"
+            android:layout_gravity="center_horizontal" />
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Salvar"
+            android:id="@+id/btn_salvar_tipo_evento"
+            android:layout_gravity="center_horizontal" />
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Listar"
+            android:id="@+id/btn_listar_tipo_evento"
+            android:layout_gravity="center_horizontal" />
+
+        <Button
+            android:id="@+id/btn_voltar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Voltar"/>
 
     </LinearLayout>
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Salvar"
-        android:id="@+id/btnSalvar"
-        android:layout_weight="0.13" />
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Excluir"
-        android:id="@+id/btnExcluir"
-        android:layout_weight="0.13"
-        android:layout_gravity="center_horizontal" />
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Editar"
-        android:id="@+id/btnEditar"
-        android:layout_weight="0.13"
-        android:layout_gravity="center_horizontal"/>
-
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Listar"
-        android:id="@+id/btnListar"
-        android:layout_weight="0.13"
-        android:layout_gravity="center_horizontal"/>
 
 </LinearLayout>
 

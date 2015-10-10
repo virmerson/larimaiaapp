@@ -1,5 +1,6 @@
 package br.ucdb.larimaiaapp.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.EditText;
@@ -21,8 +22,14 @@ import retrofit.client.Response;
 public class ActivityTipoEvento extends AppCompatActivity {
 
 
-    @Bind(R.id.etDescricao)
-    EditText txtDescricao;
+    static boolean valida = false;
+
+    static TipoEvento tipoEvento ;
+
+    @Bind(R.id.et_descricao)
+    EditText etDescricao;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,63 +37,73 @@ public class ActivityTipoEvento extends AppCompatActivity {
         setContentView(R.layout.activity_tipoevento);
         ButterKnife.bind(this);
 
+        Intent intent = getIntent();
+        TipoEvento te = (TipoEvento) intent.getSerializableExtra("TipoEvento");
+        if(te!=null){
+            TelaEditar(te);
+        }
     }
 
-    @OnClick(R.id.btnSalvar)
-    public void salvarEvento(){
-        TipoEvento te = new TipoEvento();
-        te.setDescricao(txtDescricao.getText().toString());
+    @OnClick(R.id.btn_salvar_tipo_evento)
+    public void salvar() {
+        if(valida==false) {
+            TipoEvento te = new TipoEvento();
+            te.setDescricao(etDescricao.getText().toString());
+
+            ApiWeb.getRotas().salvarTipoEvento(te, new Callback<Response>() {
+                @Override
+                public void success(Response response, Response response2) {
+                    Toast.makeText(ActivityTipoEvento.this, "Salvo com sucesso", Toast.LENGTH_SHORT).show();
+                    etDescricao.setText("");
+                }
+
+                @Override
+                public void failure(RetrofitError error) {
+                    Toast.makeText(ActivityTipoEvento.this, "Falha ao salvar", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }else{
+            editar();
+        }
+
+    }
+
+
+    @OnClick(R.id.btn_listar_tipo_evento)
+    public void listar() {
+        Intent irParaTelaListar = new Intent(this, ActivityConsultaTipoEvento.class);
+        startActivityForResult(irParaTelaListar, 1);
+    }
+
+    public void editar(){
+        TipoEvento te = tipoEvento;
+        te.setDescricao(etDescricao.getText().toString());
+
         ApiWeb.getRotas().salvarTipoEvento(te, new Callback<Response>() {
             @Override
             public void success(Response response, Response response2) {
-                Toast.makeText(ActivityTipoEvento.this, "Salvo com Sucesso!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ActivityTipoEvento.this, "Salvo com sucesso", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void failure(RetrofitError error) {
-                Toast.makeText(ActivityTipoEvento.this, "Falha ao Salvar", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ActivityTipoEvento.this, "Falha ao salvar", Toast.LENGTH_SHORT).show();
             }
         });
-        Toast.makeText(this,te.toString(), Toast.LENGTH_SHORT).show();
+        valida=false;
     }
 
-
-    @OnClick(R.id.btnEditar)
-    public void Editar(){
-
-        Long id = Long.parseLong(txtDescricao.getText().toString());
-
-        ApiWeb.getRotas().editarTipoEvento(id, new Callback<TipoEvento>() {
-            @Override
-            public void success(TipoEvento tipoevento, Response response) {
-                txtDescricao.setText(tipoevento.getDescricao().toString());
-            }
-
-            @Override
-            public void failure(RetrofitError error) {
-                Toast.makeText(ActivityTipoEvento.this, "Falha ao editar", Toast.LENGTH_SHORT).show();
-            }
-        });
-
+    public void TelaEditar(TipoEvento te){
+        tipoEvento = te;
+        valida = true;
+        etDescricao.setText(te.getDescricao());
     }
 
-    @OnClick(R.id.btnExcluir)
-    public void Excluir(){
-
-        Long id = Long.parseLong(txtDescricao.getText().toString());
-
-        ApiWeb.getRotas().excluirTipoEvento(id, new Callback<Response>() {
-            @Override
-            public void success(Response response, Response response2) {
-                Toast.makeText(ActivityTipoEvento.this, "Ecluido com sucesso", Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void failure(RetrofitError error) {
-                Toast.makeText(ActivityTipoEvento.this, "Falha ao excluir", Toast.LENGTH_SHORT).show();
-            }
-        });
-
+    //Botão para voltar a tela anterior, tela de cadastros
+    @OnClick(R.id.btn_voltar)
+    public void voltar(){
+        Intent it = new Intent(this,ActivityCadastros.class);
+        startActivity(it);
     }
-
 }
+

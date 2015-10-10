@@ -33,7 +33,7 @@ import retrofit.client.Response;
 /**
  * Created by MarcosVinicius on 23/09/2015.
  */
-public class ActivityCadPedido extends AppCompatActivity{
+public class ActivityPedido extends AppCompatActivity{
 
     Produto pro = new Produto();
 
@@ -114,25 +114,25 @@ public class ActivityCadPedido extends AppCompatActivity{
         if(dataEvento.getText() != null) {
             Date date = null;
             String dataText = new String(dataEvento.getText().toString());
-            SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+            /*SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
             try {
                 date = format.parse(dataText);
             } catch (ParseException ex) {
                 ex.printStackTrace();
-            }
-            pedido.setDataEvento(date);
+            }*/
+            pedido.setDataEvento(dataText);
         }
 
         if(dataPedido.getText() != null){
             Date date = null;
             String dataText = new String(dataPedido.getText().toString());
-            SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+            /*SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
             try {
                 date = format.parse(dataText);
             } catch (ParseException ex) {
                 ex.printStackTrace();
-            }
-            pedido.setDataPedido(date);
+            }*/
+            pedido.setDataPedido(dataText);
         }
 
         if(indicacao.getText()!= null)
@@ -169,36 +169,35 @@ public class ActivityCadPedido extends AppCompatActivity{
         }
 
         ip.setPedido(pedido);
-
-        cliente.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        pedido.setCliente((Cliente) cliente.getSelectedItem());
+       /* cliente.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Cliente cli = new Cliente();
-                cli = (Cliente) parent.getItemAtPosition(position);
-                pedido.setCliente(cli);
+
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
 
             }
-        });
-
-        tipoEvento.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        });*/
+        pedido.setEvento((TipoEvento) tipoEvento.getSelectedItem());
+        /*tipoEvento.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 TipoEvento te = new TipoEvento();
-                te = (TipoEvento) parent.getItemAtPosition(position);
-                pedido.setEvento(te);
+
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
 
             }
-        });
+        });*/
 
-        produto.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        pro = (Produto) produto.getSelectedItem();
+        ip.setProduto(pro);
+       /* produto.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 pro = (Produto) parent.getItemAtPosition(position);
@@ -209,9 +208,9 @@ public class ActivityCadPedido extends AppCompatActivity{
             public void onNothingSelected(AdapterView<?> parent) {
 
             }
-        });
+        });*/
 
-        Double total = ip.getValor() * qtdInt;
+        Double total = pro.getValor() * qtdInt;
         ip.setValor(total);
         List<ItemPedido> listaIP = new ArrayList<>();
         listaIP.add(ip);
@@ -220,12 +219,12 @@ public class ActivityCadPedido extends AppCompatActivity{
         ApiWeb.getRotas().salvarPedido(pedido, new Callback<Response>() {
             @Override
             public void success(Response response, Response response2) {
-                Toast.makeText(ActivityCadPedido.this, "Salvo com sucesso", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ActivityPedido.this, "Salvo com sucesso", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void failure(RetrofitError error) {
-                Toast.makeText(ActivityCadPedido.this, "Falha ao salvar", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ActivityPedido.this, "Falha ao salvar", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -240,7 +239,7 @@ public class ActivityCadPedido extends AppCompatActivity{
         ApiWeb.getRotas().listaClientes(new Callback<List<Cliente>>() {
             @Override
             public void success(List<Cliente> clientes, Response response) {
-                ArrayAdapter<Cliente> adapter = new ArrayAdapter<Cliente>(ActivityCadPedido.this, android.R.layout.simple_list_item_activated_1, clientes);
+                ArrayAdapter<Cliente> adapter = new ArrayAdapter<Cliente>(ActivityPedido.this, android.R.layout.simple_list_item_activated_1, clientes);
                 cliente.setAdapter(adapter);
             }
 
@@ -253,7 +252,7 @@ public class ActivityCadPedido extends AppCompatActivity{
         ApiWeb.getRotas().listarProduto(new Callback<List<Produto>>() {
             @Override
             public void success(List<Produto> produtos, Response response) {
-                ArrayAdapter<Produto> adapter = new ArrayAdapter<Produto>(ActivityCadPedido.this, android.R.layout.simple_list_item_activated_1, produtos);
+                ArrayAdapter<Produto> adapter = new ArrayAdapter<Produto>(ActivityPedido.this, android.R.layout.simple_list_item_activated_1, produtos);
                 produto.setAdapter(adapter);
             }
 
@@ -266,7 +265,7 @@ public class ActivityCadPedido extends AppCompatActivity{
         ApiWeb.getRotas().listaTipoEventos(new Callback<List<TipoEvento>>() {
             @Override
             public void success(List<TipoEvento> tiposEventos, Response response) {
-                ArrayAdapter<TipoEvento> adapter = new ArrayAdapter<TipoEvento>(ActivityCadPedido.this, android.R.layout.simple_list_item_activated_1, tiposEventos);
+                ArrayAdapter<TipoEvento> adapter = new ArrayAdapter<TipoEvento>(ActivityPedido.this, android.R.layout.simple_list_item_activated_1, tiposEventos);
                 tipoEvento.setAdapter(adapter);
             }
 

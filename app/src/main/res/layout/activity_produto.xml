@@ -31,18 +31,6 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ID"
-            android:id="@+id/tv_id"
-            android:layout_gravity="left|center_horizontal" />
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/et_id" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:text="Descrição"
             android:id="@+id/tv_descricao"
             android:layout_gravity="left|center_horizontal" />
@@ -70,21 +58,21 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="Salvar"
-            android:id="@+id/btn_salvar"
+            android:id="@+id/btn_salvar_produto"
             android:layout_gravity="center_horizontal" />
 
         <Button
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="Editar"
-            android:id="@+id/btn_editar"
+            android:text="Listar"
+            android:id="@+id/btn_listar_produto"
             android:layout_gravity="center_horizontal" />
 
         <Button
-            android:layout_width="fill_parent"
+            android:id="@+id/btn_voltar"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Excluir"
-            android:id="@+id/btn_excluir"
-            android:layout_gravity="center_horizontal" />
+            android:text="Voltar"/>
+
     </LinearLayout>
 </LinearLayout>

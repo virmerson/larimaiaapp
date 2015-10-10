@@ -1,13 +1,15 @@
 package br.ucdb.larimaiaapp.model;
 
+import java.io.Serializable;
+
 /**
  * Created by Mar_Ju on 23/09/2015.
  */
-public class Produto {
+public class Produto implements Serializable {
 
     private Long idProduto;
     private String descricao;
-    private Double valor;
+    private double valor;
 
 
     public Long getId() {
@@ -26,19 +28,17 @@ public class Produto {
         this.descricao = descricao;
     }
 
-    public Double getValor() {
+    public double getValor() {
         return valor;
     }
 
-    public void setValor(Double valor) {
+    public void setValor(double valor) {
         this.valor = valor;
     }
 
     @Override
     public String toString() {
-        return "Produto{" +
-                "descricao='" + descricao + '\'' +
-                '}';
+        return descricao;
     }
 }
 

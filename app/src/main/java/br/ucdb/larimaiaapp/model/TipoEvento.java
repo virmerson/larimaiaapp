@@ -1,11 +1,13 @@
 package br.ucdb.larimaiaapp.model;
 
+import java.io.Serializable;
+
 /**
  * Created by williamluciodonascimento on 30/09/15.
  */
-public class TipoEvento {
+public class TipoEvento implements Serializable {
 
-    private Long idTipoEvento;
+    private Integer idTipoEvento;
     private String descricao;
 
     public String getDescricao() {
@@ -16,11 +18,16 @@ public class TipoEvento {
         this.descricao = descricao;
     }
 
-    public Long getIdTipoEvento() {
+    public Integer getIdTipoEvento() {
         return idTipoEvento;
     }
 
-    public void setIdTipoEvento(Long idTipoEvento) {
+    public void setIdTipoEvento(Integer idTipoEvento) {
         this.idTipoEvento = idTipoEvento;
+    }
+
+    @Override
+    public String toString() {
+        return descricao;
     }
 }

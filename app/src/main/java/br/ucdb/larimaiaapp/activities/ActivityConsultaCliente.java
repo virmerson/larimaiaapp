@@ -29,7 +29,7 @@ import retrofit.client.Response;
 public class ActivityConsultaCliente extends AppCompatActivity {
 
     @Bind(R.id.lista_consulta)
-    ListView listaCliente;
+    ListView lista;
 
     List<Cliente> clientes;
 
@@ -38,47 +38,13 @@ public class ActivityConsultaCliente extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_consulta_cliente);
+        setContentView(R.layout.activity_consulta_lista);
 
         ButterKnife.bind(this);
 
         listar();
 
-
-        listaCliente.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-
-            @Override
-            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
-                final Cliente cli = (Cliente) adapterView.getItemAtPosition(i);
-                new AlertDialog.Builder(ActivityConsultaCliente.this)
-                        .setTitle("Excluir Cliente")
-                        .setMessage("Deseja realmente excluir este cliente?")
-                        .setPositiveButton("Sim", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, final int i) {
-                                //startLoading();
-                                //Chamando API para remover
-                                ApiWeb.getRotas().excluirCliente(cli.getId(), new Callback<Response>() {
-                                    @Override
-                                    public void success(Response response, Response response2) {
-                                        listar();
-                                    }
-
-                                    @Override
-                                    public void failure(RetrofitError error) {
-                                        Toast.makeText(ActivityConsultaCliente.this, "Erro ao conectar com o servidor", Toast.LENGTH_SHORT).show();
-
-                                    }
-                                });
-                            }
-                        });
-                return false;
-            }
-
-
-        });
-
-        listaCliente.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 final Cliente cli = (Cliente) adapterView.getItemAtPosition(position);
@@ -91,7 +57,7 @@ public class ActivityConsultaCliente extends AppCompatActivity {
             }
         });
 
-        listaCliente.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+        lista.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
 
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
@@ -143,7 +109,7 @@ public class ActivityConsultaCliente extends AppCompatActivity {
             public void success(List<Cliente> clientes, Response response) {
                 //Carrengando no ListView
                 adapter = new ArrayAdapter<>(ActivityConsultaCliente.this, android.R.layout.simple_list_item_1, clientes);
-                listaCliente.setAdapter(adapter);
+                lista.setAdapter(adapter);
             }
 
             @Override

@@ -59,6 +59,9 @@ public class ActivityCliente extends AppCompatActivity {
                 @Override
                 public void success(Response response, Response response2) {
                     Toast.makeText(ActivityCliente.this, "Salvo com sucesso", Toast.LENGTH_SHORT).show();
+                    txtNome.setText("");
+                    txtEmail.setText("");
+                    txtTelefone.setText("");
                 }
 
                 @Override
@@ -105,5 +108,12 @@ public class ActivityCliente extends AppCompatActivity {
         txtNome.setText(c.getNome());
         txtEmail.setText(c.getEmail());
         txtTelefone.setText(c.getTelefone());
+    }
+
+    //Botão para voltar a tela anterior, tela de cadastros
+    @OnClick(R.id.btn_lista_voltar)
+    public void voltar(){
+        Intent it = new Intent(this,ActivityCadastros.class);
+        startActivity(it);
     }
 }

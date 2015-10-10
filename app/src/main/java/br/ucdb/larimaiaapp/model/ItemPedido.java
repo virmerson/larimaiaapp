@@ -5,7 +5,7 @@ public class ItemPedido {
     private Produto produto;
     private Pedido pedido;
     private Integer quantidade;
-    private Double valor;
+    private double valor;
     private Integer id;
 
     public Produto getProduto() {
@@ -32,11 +32,11 @@ public class ItemPedido {
         this.quantidade = quantidade;
     }
 
-    public Double getValor() {
+    public double getValor() {
         return valor;
     }
 
-    public void setValor(Double valor) {
+    public void setValor(double valor) {
         this.valor = valor;
     }
 

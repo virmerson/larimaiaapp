@@ -9,7 +9,7 @@ import java.util.List;
 public class Pedido {
     private String indicacao, obs, localContrato, hora, rua, bairro, cep, cidade, estado, complemento, cerimonial;
     private int numero, id;
-    private Date dataEvento, dataPedido;
+    private String dataEvento, dataPedido;
     private Cliente cliente;
     private TipoEvento evento;
 
@@ -120,19 +120,19 @@ public class Pedido {
         this.numero = numero;
     }
 
-    public Date getDataEvento() {
+    public String getDataEvento() {
         return dataEvento;
     }
 
-    public void setDataEvento(Date dataEvento) {
+    public void setDataEvento(String dataEvento) {
         this.dataEvento = dataEvento;
     }
 
-    public Date getDataPedido() {
+    public String getDataPedido() {
         return dataPedido;
     }
 
-    public void setDataPedido(Date dataPedido) {
+    public void setDataPedido(String dataPedido) {
         this.dataPedido = dataPedido;
     }
 

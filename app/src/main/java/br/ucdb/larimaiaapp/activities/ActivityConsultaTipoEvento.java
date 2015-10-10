@@ -5,20 +5,17 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
-
 import java.util.List;
+
 import br.ucdb.larimaiaapp.R;
 import br.ucdb.larimaiaapp.api.ApiWeb;
-import br.ucdb.larimaiaapp.model.Produto;
+import br.ucdb.larimaiaapp.model.TipoEvento;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -27,16 +24,16 @@ import retrofit.RetrofitError;
 import retrofit.client.Response;
 
 /**
- * Created by MarceloPC on 30/09/2015.
+ * Created by Junio on 10/10/2015.
  */
-public class ActivityConsultaProduto extends AppCompatActivity {
+public class ActivityConsultaTipoEvento extends AppCompatActivity {
 
     @Bind(R.id.lista_consulta)
     ListView lista;
 
-    List<Produto> produtos;
+    List<TipoEvento> tipoeventos;
 
-    ArrayAdapter<Produto> adapter;
+    ArrayAdapter<TipoEvento> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,13 +47,11 @@ public class ActivityConsultaProduto extends AppCompatActivity {
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                final Produto pro = (Produto) adapterView.getItemAtPosition(position);
-                Intent intent = new Intent(ActivityConsultaProduto.this, ActivityProduto.class);
-                intent.putExtra("Produto", pro);
+                final TipoEvento te = (TipoEvento) adapterView.getItemAtPosition(position);
+                Intent intent = new Intent(ActivityConsultaTipoEvento.this, ActivityTipoEvento.class);
+                intent.putExtra("TipoEvento", te);
                 startActivity(intent);
 
-                //Chamando nova activity passando um Objeto no Bundle para ser editado no form
-                //startActivity(new Intent(ActivityConsultaCliente.this, ActivityCliente.class).putExtra(ActivityCliente.EDIT_KEY_COURSE, adapterView.getItem(position)));
             }
         });
 
@@ -64,8 +59,8 @@ public class ActivityConsultaProduto extends AppCompatActivity {
 
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                final Produto pro = (Produto) parent.getItemAtPosition(position);
-                AlertDialog alert = new AlertDialog.Builder(ActivityConsultaProduto.this)
+                final TipoEvento te = (TipoEvento) parent.getItemAtPosition(position);
+                AlertDialog alert = new AlertDialog.Builder(ActivityConsultaTipoEvento.this)
                         .setTitle("Excluir")
                         .setMessage("Deseja realmente excluir?")
                         .setNegativeButton("Não", null)
@@ -74,7 +69,7 @@ public class ActivityConsultaProduto extends AppCompatActivity {
                             public void onClick(DialogInterface dialogInterface, final int i) {
                                 //startLoading();
                                 //Chamando API para remover
-                                ApiWeb.getRotas().excluirProduto(pro.getId(), new Callback<Response>() {
+                                ApiWeb.getRotas().excluirTipoEvento(te.getIdTipoEvento(), new Callback<Response>() {
                                     @Override
                                     public void success(Response response, Response response2) {
                                         listar();
@@ -82,7 +77,7 @@ public class ActivityConsultaProduto extends AppCompatActivity {
 
                                     @Override
                                     public void failure(RetrofitError error) {
-                                        Toast.makeText(ActivityConsultaProduto.this, "Erro ao conectar com o servidor", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(ActivityConsultaTipoEvento.this, "Erro ao conectar com o servidor", Toast.LENGTH_SHORT).show();
                                     }
                                 });
                             }
@@ -96,22 +91,22 @@ public class ActivityConsultaProduto extends AppCompatActivity {
     //Botão para voltar a tela anterior, tela de cadastros
     @OnClick(R.id.btn_lista_voltar)
     public void voltar(){
-        Intent it = new Intent(this,ActivityCadastros.class);
+        Intent it = new Intent(this,ActivityTipoEvento.class);
         startActivity(it);
     }
     //Botão para ir a tela de cadastro deste obj
     @OnClick(R.id.btn_cadastrar)
     public void cadastrar(){
-        Intent irParaOpcao =  new Intent(this, ActivityProduto.class);
+        Intent irParaOpcao =  new Intent(this, ActivityTipoEvento.class);
         startActivity(irParaOpcao);
     }
 
     public void listar(){
-        ApiWeb.getRotas().listarProduto(new Callback<List<Produto>>() {
+        ApiWeb.getRotas().listaTipoEventos(new Callback<List<TipoEvento>>() {
             @Override
-            public void success(List<Produto> produtos, Response response) {
+            public void success(List<TipoEvento> tipoEventos, Response response) {
                 //Carrengando no ListView
-                adapter = new ArrayAdapter<>(ActivityConsultaProduto.this, android.R.layout.simple_list_item_1, produtos);
+                adapter = new ArrayAdapter<>(ActivityConsultaTipoEvento.this, android.R.layout.simple_list_item_1, tipoEventos);
                 lista.setAdapter(adapter);
             }
 
