@@ -7,14 +7,18 @@ import java.util.List;
  * Created by Gustavo on 07/10/2015.
  */
 public class Pedido {
-    private String indicacao, obs, localContrato, hora, rua, bairro, cep, cidade, estado, complemento, cerimonial;
-    private int numero, id;
+    private String indicacao;
+    private String observacao;
+    private String localEvento;
+    private String origemPedido;
+    private String horaEvento;
+    private String endereco;
+    private String cerimonial;
+    private int  id;
     private String dataEvento, dataPedido;
-    private Cliente cliente;
-    private TipoEvento evento;
-
-
-    public List<ItemPedido> listaItemPedido;
+    private Cliente idCliente;
+    private TipoEvento idTipoEvento;
+    public List<ItemPedido> itemPedidoCollection;
 
     public String getCerimonial() {
         return cerimonial;
@@ -33,92 +37,63 @@ public class Pedido {
     }
 
     public String getObs() {
-        return obs;
+        return observacao;
     }
 
     public void setObs(String obs) {
-        this.obs = obs;
+        this.observacao = obs;
+    }
+
+
+    public String getOrigemPedido() {
+        return origemPedido;
+    }
+
+    public void setOrigemPedido(String origem) {
+        this.origemPedido = origem;
     }
 
     public String getLocalContrato() {
-        return localContrato;
+        return localEvento;
     }
 
     public void setLocalContrato(String localContrato) {
-        this.localContrato = localContrato;
+        this.localEvento = localContrato;
     }
 
     public String getHora() {
-        return hora;
+        return horaEvento;
     }
 
     public void setHora(String hora) {
-        this.hora = hora;
+        this.horaEvento = hora;
     }
 
     public TipoEvento getEvento() {
-        return evento;
+        return idTipoEvento;
     }
 
     public void setEvento(TipoEvento evento) {
-        this.evento = evento;
+        this.idTipoEvento = evento;
     }
 
-    public String getRua() {
-        return rua;
+    public String getEndereco() {
+        return endereco;
     }
 
-    public void setRua(String rua) {
-        this.rua = rua;
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
     }
 
-    public String getBairro() {
-        return bairro;
+    public int getId() {
+        return id;
     }
 
-    public void setBairro(String bairro) {
-        this.bairro = bairro;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getCep() {
-        return cep;
-    }
 
-    public void setCep(String cep) {
-        this.cep = cep;
-    }
-
-    public String getCidade() {
-        return cidade;
-    }
-
-    public void setCidade(String cidade) {
-        this.cidade = cidade;
-    }
-
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
-
-    public String getComplemento() {
-        return complemento;
-    }
-
-    public void setComplemento(String complemento) {
-        this.complemento = complemento;
-    }
-
-    public int getNumero() {
-        return numero;
-    }
-
-    public void setNumero(int numero) {
-        this.numero = numero;
-    }
 
     public String getDataEvento() {
         return dataEvento;
@@ -137,19 +112,19 @@ public class Pedido {
     }
 
     public Cliente getCliente() {
-        return cliente;
+        return idCliente;
     }
 
     public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
+        this.idCliente = cliente;
     }
 
     public List<ItemPedido> getListaItemPedido() {
-        return listaItemPedido;
+        return itemPedidoCollection;
     }
 
     public void setListaItemPedido(List<ItemPedido> listaItemPedido) {
-        this.listaItemPedido = listaItemPedido;
+        this.itemPedidoCollection = listaItemPedido;
     }
 
 }

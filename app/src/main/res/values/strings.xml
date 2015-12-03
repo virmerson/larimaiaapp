@@ -11,4 +11,6 @@
     <string name="title_activity_consulta_tipo_evento">ConsultaTipoEvento</string>
     <string name="title_activity_cadastro_pedido">CadastroPedido</string>
     <string name="title_activity_consulta_pedido">ConsultaPedido</string>
+    <string name="title_activity_activity_cerimonial">ActivityCerimonial</string>
+    <string name="title_activity_activity_consulta_cerimonial">ActivityConsultaCerimonial</string>
 </resources>
